@@ -3,6 +3,7 @@ package com.example.android.quizapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,12 +12,10 @@ public class MainActivity extends AppCompatActivity {
     // because Android is dumb and makes me do this
     // instead of having the ability to nest views
     // of radio buttons inside a RadioGroup
-    RadioButton q1_radio1;
-    RadioButton q1_radio2;
-    RadioButton q1_radio3;
-    RadioButton q1_radio4;
+    RadioButton q1Radio1, q1Radio2, q1Radio3, q1Radio4;
+    RadioButton q2Radio1, q2Radio2, q2Radio3, q2Radio4;
 
-    RadioButton q2_radio1, q2_radio2, q2_radio3, q2_radio4;
+    CheckBox blueBike, blackBike, silverBike, greenBike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,48 +32,48 @@ public class MainActivity extends AppCompatActivity {
          */
 
         // set up each radio button view ID
-        q1_radio1 = (RadioButton) findViewById(R.id.q1radio1);
-        q1_radio2 = (RadioButton) findViewById(R.id.q1radio2);
-        q1_radio3 = (RadioButton) findViewById(R.id.q1radio3);
-        q1_radio4 = (RadioButton) findViewById(R.id.q1radio4);
+        q1Radio1 = (RadioButton) findViewById(R.id.q1_radio1_view);
+        q1Radio2 = (RadioButton) findViewById(R.id.q1_radio2_view);
+        q1Radio3 = (RadioButton) findViewById(R.id.q1_radio3_view);
+        q1Radio4 = (RadioButton) findViewById(R.id.q1_radio4_view);
 
         // if radio button 1 is ticked, all others are set to false
-        q1_radio1.setOnClickListener(new View.OnClickListener() {
+        q1Radio1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q1_radio1.setChecked(true);
-                q1_radio2.setChecked(false);
-                q1_radio3.setChecked(false);
-                q1_radio4.setChecked(false);
+                q1Radio1.setChecked(true);
+                q1Radio2.setChecked(false);
+                q1Radio3.setChecked(false);
+                q1Radio4.setChecked(false);
             }
         });
 
         // if radio button 2 is ticked, all others are set to false
-        q1_radio2.setOnClickListener(new View.OnClickListener() {
+        q1Radio2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q1_radio1.setChecked(false);
-                q1_radio2.setChecked(true);
-                q1_radio3.setChecked(false);
-                q1_radio4.setChecked(false);
+                q1Radio1.setChecked(false);
+                q1Radio2.setChecked(true);
+                q1Radio3.setChecked(false);
+                q1Radio4.setChecked(false);
             }
         });
 
         // if radio button 3 is ticked, all others are set to false
-        q1_radio3.setOnClickListener(new View.OnClickListener() {
+        q1Radio3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q1_radio1.setChecked(false);
-                q1_radio2.setChecked(false);
-                q1_radio3.setChecked(true);
-                q1_radio4.setChecked(false);
+                q1Radio1.setChecked(false);
+                q1Radio2.setChecked(false);
+                q1Radio3.setChecked(true);
+                q1Radio4.setChecked(false);
             }
         });
 
         // if radio button 4 is ticked, all others are set to false
-        q1_radio4.setOnClickListener(new View.OnClickListener() {
+        q1Radio4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q1_radio1.setChecked(false);
-                q1_radio2.setChecked(false);
-                q1_radio3.setChecked(false);
-                q1_radio4.setChecked(true);
+                q1Radio1.setChecked(false);
+                q1Radio2.setChecked(false);
+                q1Radio3.setChecked(false);
+                q1Radio4.setChecked(true);
             }
         });
         /**
@@ -92,53 +91,95 @@ public class MainActivity extends AppCompatActivity {
          */
 
         // set up each radio button view ID
-        q2_radio1 = (RadioButton) findViewById(R.id.q2radio1);
-        q2_radio2 = (RadioButton) findViewById(R.id.q2radio2);
-        q2_radio3 = (RadioButton) findViewById(R.id.q2radio3);
-        q2_radio4 = (RadioButton) findViewById(R.id.q2radio4);
+        q2Radio1 = (RadioButton) findViewById(R.id.q2_radio1_view);
+        q2Radio2 = (RadioButton) findViewById(R.id.q2_radio2_view);
+        q2Radio3 = (RadioButton) findViewById(R.id.q2_radio3_view);
+        q2Radio4 = (RadioButton) findViewById(R.id.q2_radio4_view);
 
         // if radio button 1 is ticked, all others are set to false
-        q2_radio1.setOnClickListener(new View.OnClickListener() {
+        q2Radio1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q2_radio1.setChecked(true);
-                q2_radio2.setChecked(false);
-                q2_radio3.setChecked(false);
-                q2_radio4.setChecked(false);
+                q2Radio1.setChecked(true);
+                q2Radio2.setChecked(false);
+                q2Radio3.setChecked(false);
+                q2Radio4.setChecked(false);
             }
         });
 
         // if radio button 2 is ticked, all others are set to false
-        q2_radio2.setOnClickListener(new View.OnClickListener() {
+        q2Radio2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q2_radio1.setChecked(false);
-                q2_radio2.setChecked(true);
-                q2_radio3.setChecked(false);
-                q2_radio4.setChecked(false);
+                q2Radio1.setChecked(false);
+                q2Radio2.setChecked(true);
+                q2Radio3.setChecked(false);
+                q2Radio4.setChecked(false);
             }
         });
 
         // if radio button 3 is ticked, all others are set to false
-        q2_radio3.setOnClickListener(new View.OnClickListener() {
+        q2Radio3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q2_radio1.setChecked(false);
-                q2_radio2.setChecked(false);
-                q2_radio3.setChecked(true);
-                q2_radio4.setChecked(false);
+                q2Radio1.setChecked(false);
+                q2Radio2.setChecked(false);
+                q2Radio3.setChecked(true);
+                q2Radio4.setChecked(false);
             }
         });
 
         // if radio button 4 is ticked, all others are set to false
-        q2_radio4.setOnClickListener(new View.OnClickListener() {
+        q2Radio4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                q2_radio1.setChecked(false);
-                q2_radio2.setChecked(false);
-                q2_radio3.setChecked(false);
-                q2_radio4.setChecked(true);
+                q2Radio1.setChecked(false);
+                q2Radio2.setChecked(false);
+                q2Radio3.setChecked(false);
+                q2Radio4.setChecked(true);
             }
         });
         /**
          * End Question 2 Radio buttons initialization
          * * <------------------------------------------------->
          */
+
+        // Initialize checkboxes
+        blueBike = findViewById(R.id.blue_bike_checkbox);
+        blackBike = findViewById(R.id.black_bike_checkbox);
+        silverBike = findViewById(R.id.silver_bike_checkbox);
+        greenBike = findViewById(R.id.green_bike_checkbox);
+    }
+
+    /**
+     *
+     * @return true if user checked Blue Bike preference
+     */
+    public boolean isBlueChecked() {
+        // blueBike initialized in onCreate method
+        return blueBike.isChecked();
+    }
+
+    /**
+     *
+     * @return true if user checked Blue Bike preference
+     */
+    public boolean isBlackChecked() {
+        // blackBike initialized in onCreate method
+        return blackBike.isChecked();
+    }
+
+    /**
+     *
+     * @return true if user checked Blue Bike preference
+     */
+    public boolean isSilverChecked() {
+        // silverBike initialized in onCreate method
+        return silverBike.isChecked();
+    }
+
+    /**
+     *
+     * @return true if user checked Blue Bike preference
+     */
+    public boolean isGreenChecked() {
+        // greenBike initialized in onCreate method
+        return greenBike.isChecked();
     }
 }
