@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Amazing Quiz App</string>
+
+    <!--For question 1-->
+    <string name="name_input">What\'s your first name?</string>
+    <string name="q1">Suppose you have an electric bike with a 48V battery and a 15A controller.\nWhat is the theoretical peak output sent to the electric motor?</string>
+    <string name="q1radio1">540 Watts</string>
+    <string name="q1radio2">720 Watts</string>
+    <string name="q1radio3">720 Amp-hours</string>
+    <string name="q1radio4">540 Watt-hours</string>
+
+    <!--For question 2-->
+    <string name="q2">A 36V, 500W motor is on full throttle. It is mated to a 36V 14Ah battery. How long until the battery is depleted? (assume optimal conditions).</string>
+    <string name="q2radio1">60 minutes</string>
+    <string name="q2radio2">55 minutes</string>
+    <string name="q2radio3">65 minutes</string>
+    <string name="q2radio4">50 minutes</string>
+
+    <!--For question 4-->
+    <string name="email_input">Gimme your email address so we can spam you!</string>
+</resources>
