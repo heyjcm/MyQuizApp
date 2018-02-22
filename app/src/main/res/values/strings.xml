@@ -16,6 +16,13 @@
     <string name="q2radio3">65 minutes</string>
     <string name="q2radio4">50 minutes</string>
 
+    <!--For question 3-->
+    <string name="q3">Which color would you buy? (Check all that apply)</string>
+    <string name="blue_check">Blue Bike</string>
+    <string name="black_check">Black Bike</string>
+    <string name="silver_check">Silver Bike</string>
+    <string name="green_check">Green Bike</string>
+
     <!--For question 4-->
     <string name="email_input">Gimme your email address so we can spam you!</string>
 </resources>
