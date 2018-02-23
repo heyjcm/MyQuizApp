@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     RadioButton q2Radio1, q2Radio2, q2Radio3, q2Radio4;
 
     CheckBox blueBike, blackBike, silverBike, greenBike;
+
+    EditText cusName;
+
+    private TextView quizSummary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
          */
 
         // set up each radio button view ID
-        q1Radio1 = (RadioButton) findViewById(R.id.q1_radio1_view);
-        q1Radio2 = (RadioButton) findViewById(R.id.q1_radio2_view);
-        q1Radio3 = (RadioButton) findViewById(R.id.q1_radio3_view);
-        q1Radio4 = (RadioButton) findViewById(R.id.q1_radio4_view);
+        q1Radio1 = findViewById(R.id.q1_radio1_view);
+        q1Radio2 = findViewById(R.id.q1_radio2_view);
+        q1Radio3 = findViewById(R.id.q1_radio3_view);
+        q1Radio4 = findViewById(R.id.q1_radio4_view);
 
         // if radio button 1 is ticked, all others are set to false
         q1Radio1.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +151,12 @@ public class MainActivity extends AppCompatActivity {
         blackBike = findViewById(R.id.black_bike_checkbox);
         silverBike = findViewById(R.id.silver_bike_checkbox);
         greenBike = findViewById(R.id.green_bike_checkbox);
+
+        // Initialize name
+        cusName = findViewById(R.id.enter_name);
+
+        // Initialize quizSummary
+        quizSummary = findViewById(R.id.quiz_summary_view);
     }
 
     /**
@@ -181,5 +193,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean isGreenChecked() {
         // greenBike initialized in onCreate method
         return greenBike.isChecked();
+    }
+
+    /**
+     *
+     * @return customer's name entered in the enter_name EditText
+     * cusName is declared as an instance variable at the top
+     * then initialized in onCreate() method
+     */
+    public String customerName() {
+        // this is the syntax to get the text from the view
+        // <----could have also done this (but not as good for CPU):---->
+        // EditText cusName;
+        // cusName = findViewById(R.id.enter_name);
+        return cusName.getText().toString();
+    }
+
+    public void submitQuiz(View view) {
+        quizSummary.setText(customerName());
     }
 }

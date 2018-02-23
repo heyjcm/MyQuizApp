@@ -28,4 +28,8 @@
 
     <!--Submit-->
     <string name="submit">Submit</string>
+
+
+    <!--For Java-->
+    <string name="customer_name">Hi: </string>
 </resources>
