@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Amazing Quiz App</string>
 
     <!--For question 1-->
@@ -31,5 +31,6 @@
 
 
     <!--For Java-->
-    <string name="customer_name">Hi: </string>
+    <string name="customer_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="q1_answer">Your answer to Q1 was: </string>
 </resources>

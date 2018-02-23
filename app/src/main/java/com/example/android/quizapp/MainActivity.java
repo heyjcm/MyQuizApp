@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
          */
 
         // set up each radio button view ID
-        q2Radio1 = (RadioButton) findViewById(R.id.q2_radio1_view);
-        q2Radio2 = (RadioButton) findViewById(R.id.q2_radio2_view);
-        q2Radio3 = (RadioButton) findViewById(R.id.q2_radio3_view);
-        q2Radio4 = (RadioButton) findViewById(R.id.q2_radio4_view);
+        q2Radio1 = findViewById(R.id.q2_radio1_view);
+        q2Radio2 = findViewById(R.id.q2_radio2_view);
+        q2Radio3 = findViewById(R.id.q2_radio3_view);
+        q2Radio4 = findViewById(R.id.q2_radio4_view);
 
         // if radio button 1 is ticked, all others are set to false
         q2Radio1.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize quizSummary
         quizSummary = findViewById(R.id.quiz_summary_view);
+
+
     }
 
     /**
@@ -210,6 +212,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitQuiz(View view) {
-        quizSummary.setText(customerName());
+        quizSummary.setText(createQuizSummary());
+
+    }
+
+    public String getQ1Answer() {
+        if (q1Radio1.isChecked()) {
+            return getString(R.string.q1radio1);
+        }
+
+        if (q1Radio2.isChecked()) {
+            return getString(R.string.q1radio2);
+        }
+
+        if (q1Radio3.isChecked()) {
+            return getString(R.string.q1radio3);
+        }
+
+        if (q1Radio4.isChecked()) {
+            return getString(R.string.q1radio4);
+        }
+
+        return "No answer!";
+    }
+
+
+    private String createQuizSummary() {
+        return getString(R.string.customer_name, customerName()) + // have to use xliff in strings.xml for this to work
+                "\n" + getString(R.string.q1_answer) + " " + getQ1Answer();
+
     }
 }
