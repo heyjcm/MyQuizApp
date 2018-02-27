@@ -218,28 +218,57 @@ public class MainActivity extends AppCompatActivity {
 
     public String getQ1Answer() {
         if (q1Radio1.isChecked()) {
-            return getString(R.string.q1radio1);
+            return getString(R.string.q1radio1) +
+                    "--> That's not right. The right answer is 720W";
         }
 
         if (q1Radio2.isChecked()) {
-            return getString(R.string.q1radio2);
+            return getString(R.string.q1radio2) +
+                    "--> That's right!";
         }
 
         if (q1Radio3.isChecked()) {
-            return getString(R.string.q1radio3);
+            return getString(R.string.q1radio3) +
+                    "--> That's not right. The right answer is 720W";
         }
 
         if (q1Radio4.isChecked()) {
-            return getString(R.string.q1radio4);
+            return getString(R.string.q1radio4) +
+                    "--> That's not right. The right answer is 720W";
         }
 
         return "No answer!";
     }
 
+    public String getQ2Answer() {
+        if (q2Radio1.isChecked()) {
+            return getString(R.string.q2radio1) +
+                    "--> That's right!";
+        }
+
+        if (q2Radio2.isChecked()) {
+            return getString(R.string.q2radio2) +
+                    "--> That's not right. The right answer is 60 minutes";
+        }
+
+        if (q2Radio3.isChecked()) {
+            return getString(R.string.q2radio3) +
+                    "--> That's not right. The right answer is 60 minutes";
+        }
+
+        if (q2Radio4.isChecked()) {
+            return getString(R.string.q2radio4) +
+                    "--> That's not right. The right answer is 60 minutes";
+        }
+
+        return "No answer!";
+    }
 
     private String createQuizSummary() {
         return getString(R.string.customer_name, customerName()) + // have to use xliff in strings.xml for this to work
-                "\n" + getString(R.string.q1_answer) + " " + getQ1Answer();
+                "\n" + getString(R.string.q1_answer) + " " + getQ1Answer() +
+                "\n" + getString(R.string.q2_answer) + " " + getQ2Answer() +
+                "\n" + getString(R.string.q2_answer) + " " + getQ2Answer();
 
     }
 }

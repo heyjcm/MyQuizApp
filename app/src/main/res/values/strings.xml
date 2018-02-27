@@ -33,4 +33,5 @@
     <!--For Java-->
     <string name="customer_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
     <string name="q1_answer">Your answer to Q1 was: </string>
+    <string name="q2_answer">Your answer to Q2 was: </string>
 </resources>
