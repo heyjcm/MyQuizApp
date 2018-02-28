@@ -34,4 +34,6 @@
     <string name="customer_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
     <string name="q1_answer">Your answer to Q1 was: </string>
     <string name="q2_answer">Your answer to Q2 was: </string>
+    <string name="q3_answer">Your response to Q3 was: </string>
+    <string name="q4_answer">Your email is: </string>
 </resources>

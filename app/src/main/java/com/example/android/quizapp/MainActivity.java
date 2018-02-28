@@ -2,11 +2,16 @@ package com.example.android.quizapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     CheckBox blueBike, blackBike, silverBike, greenBike;
 
-    EditText cusName;
+    EditText cusName, cusEmail;
 
     private TextView quizSummary;
+
+    Map<String, Boolean> colorMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,46 +162,68 @@ public class MainActivity extends AppCompatActivity {
         // Initialize name
         cusName = findViewById(R.id.enter_name);
 
+        // Initialize customer email
+        cusEmail = findViewById(R.id.customers_email);
+
         // Initialize quizSummary
         quizSummary = findViewById(R.id.quiz_summary_view);
 
 
     }
 
+    public void populateColorMap() {
+        isBlueChecked();
+        isBlackChecked();
+        isSilverChecked();
+        isGreenChecked();
+    }
+
     /**
      *
      * @return true if user checked Blue Bike preference
      */
-    public boolean isBlueChecked() {
+    public void isBlueChecked() {
         // blueBike initialized in onCreate method
-        return blueBike.isChecked();
+        //return blueBike.isChecked();
+        if (blueBike.isChecked()) {
+            colorMap.put("Blue", true);
+        }
     }
 
     /**
      *
      * @return true if user checked Blue Bike preference
      */
-    public boolean isBlackChecked() {
+    public void isBlackChecked() {
         // blackBike initialized in onCreate method
-        return blackBike.isChecked();
+        //return blackBike.isChecked();
+        if (blackBike.isChecked()) {
+            colorMap.put("Black", true);
+        }
     }
 
     /**
      *
      * @return true if user checked Blue Bike preference
      */
-    public boolean isSilverChecked() {
+    public void isSilverChecked() {
         // silverBike initialized in onCreate method
-        return silverBike.isChecked();
+        //return silverBike.isChecked();
+        if (silverBike.isChecked()) {
+            colorMap.put("Silver", true);
+        }
     }
 
     /**
      *
      * @return true if user checked Blue Bike preference
      */
-    public boolean isGreenChecked() {
+    public void isGreenChecked() {
         // greenBike initialized in onCreate method
-        return greenBike.isChecked();
+        // return greenBike.isChecked();
+        if (greenBike.isChecked()) {
+            colorMap.put("Green", true);
+        }
     }
 
     /**
@@ -212,6 +241,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitQuiz(View view) {
+        // Initialize HashMap of colors to false
+        colorMap.put("Blue", false);
+        colorMap.put("Black", false);
+        colorMap.put("Silver", false);
+        colorMap.put("Green", false);
+
+        // call colorChecker here
+        populateColorMap();
+
         quizSummary.setText(createQuizSummary());
 
     }
@@ -264,11 +302,88 @@ public class MainActivity extends AppCompatActivity {
         return "No answer!";
     }
 
+    /**
+     *
+     * @return a string with the response(s) for Q3 built
+     * depending on which checkboxes were checked.
+     */
+    public String getQ3Answer() {
+        String q3Response = "WHAT?!? You don't have a favorite color?";
+        Boolean choseAColor = false;
+
+        Iterator colorIterator = colorMap.keySet().iterator();
+
+        while (colorIterator.hasNext()) {
+            // key is the color being checked
+            String key = (String) colorIterator.next();
+
+            // value is boolean of color
+            Boolean isColorChecked = colorMap.get(key);
+
+            if (isColorChecked && !choseAColor) {
+                q3Response = key;
+                choseAColor = true;
+            }
+            else if (isColorChecked) {
+                q3Response += ", " + key;
+            }
+        }
+
+
+        // this code works but I changed it (and other
+        // functions supporting it) to the more dynamic
+        // version above. Color checker functions
+        // (isBlueChecked, etc) have also been modified
+        // from their previous versions
+        /*if (isBlueChecked()) {
+            q3Response = "Blue Bike";
+            countColors++;
+        }
+
+        if (isBlackChecked() && countColors == 0) {
+            q3Response = "Black Bike";
+            countColors++;
+        }
+        else if (isBlackChecked() && countColors > 0) {
+            q3Response += ", Black Bike";
+            countColors++;
+        }
+
+        if (isSilverChecked() && countColors == 0) {
+            q3Response = "Silver Bike";
+            countColors++;
+        }
+        else if (isSilverChecked() && countColors > 0) {
+            q3Response += ", Silver Bike";
+            countColors++;
+        }
+
+        if (isGreenChecked() && countColors == 0) {
+            q3Response = "Green Bike";
+            countColors++;
+        }
+        else if (isGreenChecked() && countColors > 0) {
+            q3Response += ", Green Bike";
+            countColors++;
+        }*/
+
+        return q3Response;
+    }
+
+    public Boolean colorChecker(String color) {
+        return colorMap.get(color);
+    }
+
+    public String getQ4Answer() {
+        return cusEmail.getText().toString();
+    }
+
     private String createQuizSummary() {
-        return getString(R.string.customer_name, customerName()) + // have to use xliff in strings.xml for this to work
+            return getString(R.string.customer_name, customerName()) + // have to use xliff in strings.xml for this to work
                 "\n" + getString(R.string.q1_answer) + " " + getQ1Answer() +
                 "\n" + getString(R.string.q2_answer) + " " + getQ2Answer() +
-                "\n" + getString(R.string.q2_answer) + " " + getQ2Answer();
+                "\n" + getString(R.string.q3_answer) + " " + getQ3Answer() +
+                "\n" + getString(R.string.q4_answer) + " " + getQ4Answer();
 
     }
 }
